@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'Shipping',
     'ShippingLine',
     'Core',
-
+    'Store'
 ]
 
 MIDDLEWARE = [
