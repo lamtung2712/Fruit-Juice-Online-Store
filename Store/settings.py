@@ -39,14 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Product',
-    'Cart',
-    'Category',
+
     'Customer',
     'Order',
-    'OrderLine',
-    'Variation',
-    'Shipping',
-    'ShippingLine',
+
     'Core',
     'Store'
 ]
@@ -87,8 +83,13 @@ WSGI_APPLICATION = 'Store.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'tunglam2708',
+        'USER' : 'postgres',
+        'PASSWORD' : '270899',
+        'HOST' : 'localhost',
+        'PORT' : '5432',
+
     }
 }
 
@@ -135,5 +136,5 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIR = [
-    os.path.join(BASE_DIR, 'Static'),
+    os.path.join(BASE_DIR, 'static'),
 ]
