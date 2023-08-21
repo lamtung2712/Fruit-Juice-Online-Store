@@ -1,4 +1,6 @@
+
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -10,9 +12,28 @@
 	<title>Fruitkha</title>
 
 
-{% block cssblock %}
+<!-- favicon -->
+<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+<!-- google font -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+<!-- fontawesome -->
+<link rel="stylesheet" href="{% static 'homepage/assets/css/all.min.css' %}">
+<!-- bootstrap -->
+<link rel="stylesheet" href="{% static 'homepage/assets/bootstrap/css/bootstrap.min.css' %}">
+<!-- owl carousel -->
+<link rel="stylesheet" href="{% static 'homepage/assets/css/owl.carousel.css' %}">
+<!-- magnific popup -->
+<link rel="stylesheet" href="{% static 'homepage/assets/css/magnific-popup.css' %}">
+<!-- animate css -->
+<link rel="stylesheet" href="{% static 'homepage/assets/css/animate.css' %}">
+<!-- mean menu css -->
+<link rel="stylesheet" href="{% static 'homepage/assets/css/meanmenu.min.css' %}">
+<!-- main style -->
+<link rel="stylesheet" href="{% static 'homepage/assets/css/main.css' %}">
+<!-- responsive -->
+<link rel="stylesheet" href="{% static 'homepage/assets/css/responsive.css' %}">
 
-{% endblock %}
 
 
 </head>
@@ -21,9 +42,28 @@
 {% block content %}
 
 {% endblock %}
+	<!-- jquery -->
+	<script src="{% static 'homepage/assets/js/jquery-1.11.3.min.js' %}"></script>
+	<!-- bootstrap -->
+	<script src="{% static 'homepage/assets/bootstrap/js/bootstrap.min.js' %}"></script>
+	<!-- count down -->
+	<script src="{% static 'homepage/assets/js/jquery.countdown.js' %}"></script>
+	<!-- isotope -->
+	<script src="{% static 'homepage/assets/js/jquery.isotope-3.0.6.min.js' %}"></script>
+	<!-- waypoints -->
+	<script src="{% static 'homepage/assets/js/waypoints.js' %}"></script>
+	<!-- owl carousel -->
+	<script src="{% static 'homepage/assets/js/owl.carousel.min.js' %}"></script>
+	<!-- magnific popup -->
+	<script src="{% static 'homepage/assets/js/jquery.magnific-popup.min.js' %}"></script>
+	<!-- mean menu -->
+	<script src="{% static 'homepage/assets/js/jquery.meanmenu.min.js' %}"></script>
+	<!-- sticker js -->
+	<script src="{% static 'homepage/assets/js/sticker.js' %}"></script>
+	<!-- main js -->
+	<script src="{% static 'homepage/assets/js/main.js' %}"></script>
 
-{% block jsblock %}
-
-{% endblock %}
 </body>
+
+
 </html>
