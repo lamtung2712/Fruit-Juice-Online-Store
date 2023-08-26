@@ -14,9 +14,3 @@ class Order(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
     order_time = models.DateTimeField(auto_now_add=True)
 
-class OrderLine(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantity = models.IntegerField(default=0)
-    unit_price = models.IntegerField(default=0)
-    total_price = models.IntegerField(default=0)
-    order_id = models.ForeignKey(Order, on_delete=models.CASCADE)
