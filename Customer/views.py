@@ -1,10 +1,9 @@
 from django.shortcuts import render
-from Customer.models import Customer
+from .models import Customer
 
-# Create your views here.
-def customer_list(request):
-    products = Customer.objects.filter(active=True)
-    return render(request, 'homepage/product_section.html', {'products': products})
+def customer_detail_view(request, customer_id):
+    customer = Customer.objects.get(pk=customer_id)
+    return render(request, 'homepage/customer.html', {'customer': customer})
 
 
 

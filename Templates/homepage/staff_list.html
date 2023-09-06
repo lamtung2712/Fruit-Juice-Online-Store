@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Staff List</title>
+</head>
+<body>
+    <h1>Staff List</h1>
+    <ul>
+        {% for staff in staff_list %}
+            <li><a href="{% url 'staff_details' staff.id %}">{{ staff.staff_name }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
