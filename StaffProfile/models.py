@@ -1,8 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, Group, Permission
 # Create your models here.
 
 class Staff(AbstractUser):
-    staff_name = models.CharField(default='', max_length=100)
-    phone_number = models.CharField(default='', max_length=100)
+    position = models.CharField(default='', max_length=200)
+    groups = models.ManyToManyField(Group, related_name='users')
+    user_permissions = models.ManyToManyField(Permission, related_name='users')
 
