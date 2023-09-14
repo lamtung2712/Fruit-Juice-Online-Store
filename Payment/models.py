@@ -9,3 +9,4 @@ class Payment(models.Model):
     unit_price = models.IntegerField(default=0)
     total_price = models.IntegerField(default=0)
     order_id = models.ForeignKey(Order, on_delete=models.CASCADE)
+    active = models.BooleanField(default='True')

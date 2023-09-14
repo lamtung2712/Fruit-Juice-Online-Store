@@ -4,19 +4,11 @@
 
 
 
-{% block content %}
-	<!--PreLoader-->
-    <div class="loader">
-        <div class="loader-inner">
-            <div class="circle"></div>
-        </div>
-    </div>
-    <!--PreLoader Ends-->
-	
-	<!-- header -->
+{% block navbar %}
+{% include 'homepage/navbar.html' %}
+{% endblock %}
 
-	<!-- end header -->
-	
+{% block content %}
 	<!-- search area -->
 	<div class="search-area">
 		<div class="container">
@@ -43,10 +35,10 @@
 				<div class="col-lg-9 offset-lg-2 text-center">
 					<div class="hero-text">
 						<div class="hero-text-tablecell">
-							<p class="subtitle">Fruit Juice</p>
+							<p class="subtitle">NatureSip</p>
 							<h1>Delicious Seasonal Fruits</h1>
 							<div class="hero-btns">
-								<a href="{% url 'products:product_list' %}" class="boxed-btn">Our Products</a>
+								<a href="{% url 'shop:products_list' %}" class="boxed-btn">Our Products</a>
 								<a href="contact.html" class="bordered-btn">Contact Us</a>
 							</div>
 						</div>
@@ -129,7 +121,7 @@
                     <div class="text">Quisquam minus maiores repudiandae nobis, minima saepe id, fugit ullam similique! Beatae, minima quisquam molestias facere ea. Perspiciatis unde omnis iste natus error sit voluptatem accusant</div>
                     <!--Countdown Timer-->
                     <div class="time-counter"><div class="time-countdown clearfix" data-countdown="2020/2/01"><div class="counter-column"><div class="inner"><span class="count">00</span>Days</div></div> <div class="counter-column"><div class="inner"><span class="count">00</span>Hours</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Mins</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Secs</div></div></div></div>
-                	<a href="cart.html" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                	<a href="{% url 'ordering:order_list' %}" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 </div>
             </div>
         </div>
@@ -150,34 +142,6 @@
 								<h3>Tùng Lâm<span>Local shop owner</span></h3>
 								<p class="testimonial-body">
 									"Our fruit juices are a burst of natural flavor and refreshment. I have a daily dose of health and taste in every sip"
-								</p>
-								<div class="last-icon">
-									<i class="fas fa-quote-right"></i>
-								</div>
-							</div>
-						</div>
-						<div class="single-testimonial-slider">
-							<div class="client-avater">
-								<img src="static homepage/assets/img/avaters/avatar2.png" alt="">
-							</div>
-							<div class="client-meta">
-								<h3>Lai Thi Huong<span>Local shop assistance</span></h3>
-								<p class="testimonial-body">
-									" Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium "
-								</p>
-								<div class="last-icon">
-									<i class="fas fa-quote-right"></i>
-								</div>
-							</div>
-						</div>
-						<div class="single-testimonial-slider">
-							<div class="client-avater">
-								<img src="static homepage/assets/img/avaters/avatar3.png" alt="">
-							</div>
-							<div class="client-meta">
-								<h3>Yen Nhi<span>Local shop assistance</span></h3>
-								<p class="testimonial-body">
-									"At [Your Store Name]. Our dedicated team is here to assist you with a warm smile and expert guidance. Whether you're looking for the freshest fruits, personalized recommendations, or just a friendly chat, we're always here to make your shopping experience delightful."
 								</p>
 								<div class="last-icon">
 									<i class="fas fa-quote-right"></i>
@@ -219,7 +183,7 @@
     	<div class="container">
         	<h3>December sale is on! <br> with big <span class="orange-text">Discount...</span></h3>
             <div class="sale-percent"><span>Sale! <br> Upto</span>50% <span>off</span></div>
-            <a href="shop.html" class="cart-btn btn-lg">Shop Now</a>
+            <a href="{% url 'ordering:order_list' %}" class="cart-btn btn-lg">Shop Now</a>
         </div>
     </section>
 	<!-- end shop banner -->
@@ -318,9 +282,7 @@
 	</div>
 	<!-- end logo carousel -->
 
-	<!-- footer -->
 
-	<!-- end footer -->
 
 {% endblock %}
 
@@ -347,3 +309,4 @@
 	<script src="{% static 'homepage/assets/js/main.js' %}"></script>
 {% endblock %}
 
+{% include 'homepage/footer.html' %}
