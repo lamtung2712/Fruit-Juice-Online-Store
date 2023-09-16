@@ -37,8 +37,16 @@
 </head>
 
 <body>
+{% block header %}
+{% include 'homepage/navbar.html' %}
+{% endblock %}
+
 {% block content %}
 
+{% endblock %}
+
+{% block footer %}
+{% include 'homepage/footer.html' %}
 {% endblock %}
 	<!-- jquery -->
 	<script src="{% static 'homepage/assets/js/jquery-1.11.3.min.js' %}"></script>
@@ -60,6 +68,7 @@
 	<script src="{% static 'homepage/assets/js/sticker.js' %}"></script>
 	<!-- main js -->
 	<script src="{% static 'homepage/assets/js/main.js' %}"></script>
+
 
 </body>
 

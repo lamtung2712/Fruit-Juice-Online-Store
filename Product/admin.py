@@ -4,7 +4,7 @@ from Product.models import Product, Category
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('title', 'description', 'price','currency', 'category',)
+    list_display = ('title', 'description', 'price', 'currency', 'category',)
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):

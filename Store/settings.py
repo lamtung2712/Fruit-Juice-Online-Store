@@ -84,9 +84,9 @@ WSGI_APPLICATION = 'Store.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Fruit_juice_online_store',
-        'USER': 'admin',
-        'PASSWORD': 'admin',
+        'NAME': 'tunglam2708',
+        'USER': 'postgres',
+        'PASSWORD': '270899',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -137,4 +137,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
+    BASE_DIR / 'Product/static',
 ]
