@@ -28,6 +28,9 @@ urlpatterns = [
     path('checkout/', include('Payment.urls')),
 ]
 
+"""
+    Đoạn mã này cho phép ta liên kết đến các tệp đa phương tiện (VD: hình ảnh, video)
+"""
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
