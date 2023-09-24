@@ -75,7 +75,7 @@
 				<div class="col-lg-4 col-md-6 text-center strawberry">
 					<div class="single-product-item">
 						<div class="product-image">
-							<a href="single-product.html"><img src="{{ product.images.url }}" alt=""></a>
+							<a href="{% url 'shop:products_list' %}"><img src="{{ product.images.url }}" alt=""></a>
 						</div>
 						<h3>{{ product.title }}</h3>
 						<p class="product-price">{{ product.price }} {{ product.currency }}</p>
@@ -98,22 +98,25 @@
 					</div>
 				</div>
 			</div>
-			<script>
-        const prevPage = document.getElementById('prevPage');
-        const nextPage = document.getElementById('nextPage');
 
-        prevPage.addEventListener('click', function(event) {
-            event.preventDefault();
-            nextPage.classList.add('active');
-            prevPage.classList.remove('active');
-        });
+			<div class='pagination'>
+				{% if post.has_previous %}
+					<a href="?page=1" class="page-link">&lt;&lt; First</a>
+					<a href="?page={{ product_list.previous_page_number }}" class="page-link">&lt; Previous</a>
+				{% endif %}
 
-        nextPage.addEventListener('click', function(event) {
-            event.preventDefault();
-            prevPage.classList.add('active');
-            nextPage.classList.remove('active');
-        });
-    		</script>
+				{% for num in posts.paginator.page_range %}
+					{% if num == product_list.number %}
+						<a href="?page={{ num }}" class="page-link current-page">{{ num }}</a>
+					{% else %}
+						<a href="?page={{ num }}" class="page-link">{{ num }}</a>
+					{% endif %}
+				{% endfor %}
+				{% if posts.has_next %}
+					<a href="?page={{ product_list.next_page_number }}" class="page-link">Next &gt;</a>
+					<a href="?page={{ product_list.paginator.num_pages }}" class="page-link">Last &gt;&gt;</a>
+				{% endif %}
+
 		</div>
 	</div>
 	<!-- end products -->
@@ -171,6 +174,6 @@
 	<script src="{% static 'homepage/assets/js/sticker.js' %}"></script>
 	<!-- main js -->
 	<script src="{% static 'homepage/assets/js/main.js' %}"></script>
-
+	</div>
 </body>
 </html>
