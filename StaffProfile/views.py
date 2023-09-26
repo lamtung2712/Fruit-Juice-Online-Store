@@ -20,12 +20,13 @@ def pageView(request):
     page = request.GET.get('page')
 
     try:
-        posts = paginator.page(page)
+        product_list = paginator.page(page)
     except EmptyPage:
         # Neu page khong phai la so nguyen, hien thi trang dau tien
-        posts = paginator.page(1)
+        product_list = paginator.page(1)
+
     except PageNotAnInteger:
-        posts = paginator.page(paginator.num_pages)
+        product_list = paginator.page(paginator.num_pages)
 
     context.update({
         'product_list': product_list

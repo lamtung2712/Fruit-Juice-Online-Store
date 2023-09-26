@@ -85,36 +85,36 @@
 				{% endfor %}
 			</div>
 
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<div class="pagination-wrap">
-						<ul>
-							<li><a class="active" href="#">Prev</a></li>
-							<li><a class="active" href="#">1</a></li>
-							<li><a class="active" href="#">2</a></li>
-							<li><a class="active" href="#">3</a></li>
-							<li><a class="active" href="#">Next</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
+{#			<div class="row">#}
+{#				<div class="col-lg-12 text-center">#}
+{#					<div class="pagination-wrap">#}
+{#						<ul>#}
+{#							<li><a class="active" href="#">Prev</a></li>#}
+{#							<li><a class="active" href="#">1</a></li>#}
+{#							<li><a class="active" href="#">2</a></li>#}
+{#							<li><a class="active" href="#">3</a></li>#}
+{#							<li><a class="active" href="#">Next</a></li>#}
+{#						</ul>#}
+{#					</div>#}
+{#				</div>#}
+{#			</div>#}
 
-			<div class='pagination'>
-				{% if post.has_previous %}
-					<a href="?page=1" class="page-link">&lt;&lt; First</a>
-					<a href="?page={{ product_list.previous_page_number }}" class="page-link">&lt; Previous</a>
+			<div class='pagination-product'>
+				{% if products.has_previous %}
+					<a href="?page=1" class="page-link-product">&lt;&lt; First</a>
+					<a href="?page={{ products.previous_page_number }}" class="page-link-product">&lt; Previous</a>
 				{% endif %}
 
-				{% for num in posts.paginator.page_range %}
-					{% if num == product_list.number %}
-						<a href="?page={{ num }}" class="page-link current-page">{{ num }}</a>
+				{% for num in products.paginator.page_range %}
+					{% if num == products.number %}
+						<a href="?page={{ num }}" class="page-link-product current-page">{{ num }}</a>
 					{% else %}
-						<a href="?page={{ num }}" class="page-link">{{ num }}</a>
+						<a href="?page={{ num }}" class="page-link-product">{{ num }}</a>
 					{% endif %}
 				{% endfor %}
-				{% if posts.has_next %}
-					<a href="?page={{ product_list.next_page_number }}" class="page-link">Next &gt;</a>
-					<a href="?page={{ product_list.paginator.num_pages }}" class="page-link">Last &gt;&gt;</a>
+				{% if products.has_next %}
+					<a href="?page={{ products.next_page_number }}" class="page-link-product">Next &gt;</a>
+					<a href="?page={{ products.paginator.num_pages }}" class="page-link-product">Last &gt;&gt;</a>
 				{% endif %}
 
 		</div>

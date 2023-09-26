@@ -1,30 +1,30 @@
-.pagination{
-	display: flex;
-	algin-items: center;
-	justify-content: center;
-	margin-top: 20px;
-	}
+.pagination-product {
+    display: flex;
+    algin-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
 
-.page-link{
-	color: #333;
-	text-decoration: none;
-	padding: 5px 10px;
-	border: 1px solid #ccc
-	margin: 0 2px;
-	border-radius: 4px;
-	}
+.page-link-product {
+    color: #333;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    margin: 0 2px;
+    border-radius: 4px;
+}
 
-.page-link:hover{
-	background-color: #f2f2f2;
-	}
+.page-link-product:hover {
+    background-color: #f2f2f2;
+}
 
-'current-page{
-	background-color: #007bff;
-	color: #fff;
-	border: 1px solid #007bff;
-	}
+.current-page {
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+}
 
-'current-page:hover{
-	background-color: #007bff;
-	color: #fff;
-	}
+.current-page:hover {
+    background-color: #007bff;
+    color: #fff;
+}
