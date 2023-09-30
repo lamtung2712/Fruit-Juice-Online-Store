@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'Core',
     'Store',
     'StaffProfile',
+    'authentication',
 
 ]
 
