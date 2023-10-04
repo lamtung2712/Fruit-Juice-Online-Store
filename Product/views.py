@@ -8,7 +8,7 @@ def product_list(request):
     context = {}
     products = Product.objects.filter(active=True)
 
-    per_page = 3
+    per_page = 1
     paginator = Paginator(products, per_page)
 
     page = request.GET.get('page')
