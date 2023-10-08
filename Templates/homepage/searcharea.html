@@ -1,16 +1,41 @@
-	<div class="search-area">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<span class="close-btn"><i class="fas fa-window-close"></i></span>
-					<div class="search-bar">
-						<div class="search-bar-tablecell">
-							<h3>Search For:</h3>
-							<input type="text" placeholder="Keywords">
-							<button type="submit">Search <i class="fas fa-search"></i></button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="search-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <span class="close-btn"><i class="fas fa-window-close"></i></span>
+                <div class="search-bar">
+                    <div class="search-bar-tablecell">
+                        <h3>Search For:</h3>
+                        <input type="text" id="search-input" placeholder="Keywords">
+                        <!-- Thay đổi type của button thành "submit" và bỏ id -->
+                        <button type="submit">Search <i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Thêm một biểu mẫu để bao bọc phần tìm kiếm -->
+<form id="search-form" action="{% url 'search_product' %}" method="get" style="display: none;">
+    <!-- Thêm một trường ẩn để lưu từ khóa tìm kiếm -->
+    <input type="hidden" name="q" id="search-keyword">
+</form>
+
+<script>
+    document.getElementById("search-button").addEventListener("click", function () {
+        performSearch();
+    });
+
+    document.getElementById("search-input").addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+            performSearch();
+        }
+    });
+
+    function performSearch() {
+        var keyword = document.getElementById("search-input").value;
+        document.getElementById("search-keyword").value = keyword;
+        document.getElementById("search-form").submit();
+    }
+</script>
