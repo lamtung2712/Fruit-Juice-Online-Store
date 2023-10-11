@@ -10,7 +10,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(Cart)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('quantity', 'product','user')
+    list_display = ('product','user')
 
 
 

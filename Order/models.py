@@ -4,7 +4,6 @@ from Customer.models import User
 
 # Create your models here.
 class Cart(models.Model):
-    quantity = models.IntegerField(default=0)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     active = models.BooleanField(default=True)

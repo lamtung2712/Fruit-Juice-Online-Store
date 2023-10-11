@@ -22,6 +22,7 @@ class Product(models.Model):
     active = models.BooleanField(default=True)
     currency = models.CharField(max_length=200, default='vnd')
     images = models.ImageField(blank=True,upload_to='Product/media/img/')
+    quantity = models.IntegerField(default=0)
 
 class Discount(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
