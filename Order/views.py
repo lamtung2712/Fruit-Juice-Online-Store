@@ -18,6 +18,19 @@ def add_to_cart(request, product_id):
     else:
         return redirect('account:login')
 
+def place_order(request):
+    user = request.user
+    cart = Cart.objects.filter(user=user, active=True)
+    if cart.exists():
+        # Lưu thông tin đơn hàng
+        order = Order(user=user, address=request.POST['address'], cart=cart.first())
+        order.save()
+        cart.update(active=False)
+
+        return redirect('your_order_success_page')
+    else:
+        return redirect('your_empty_cart_page')
+
 
 
 
