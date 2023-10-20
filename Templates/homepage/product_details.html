@@ -34,7 +34,7 @@
 						</div>
 						<h3>{{ product.title }}</h3>
 						<p class="product-price">{{ product.price }} {{ product.currency }}</p>
-						<a href="{% url 'ordering:order_list' %}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+						<a href="{% url 'ordering:add_to_cart' product.id %}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 					</div>
 					<div class="single-product-form">
 						<form action="index.html">
