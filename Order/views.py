@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Order, Cart
+from .models import Order, Cart, CartItem
 from Product.models import Product
 
 
@@ -11,15 +11,16 @@ def order_list(request):
 
 def add_to_cart(request, product_id):
     product = Product.objects.get(pk=product_id)
-    cart = False
-    cart_item, created = Cart.objects.get_or_create(cart=cart, product=product)
-    if not created:
+    cart, created = Cart.objects.get_or_create(user=request.user)
+    try:
+        cart_item = CartItem.objects.get(cart=cart, product=product)
         cart_item.quantity += 1
         cart_item.save()
-        return render(request, 'homepage/cart.html', {'products': product})
-        # return redirect('ordering:order_list')
-    # else:
-    #     return redirect('account:login')
+    except CartItem.DoesNotExist:
+        cart_item = CartItem(cart=cart, product=product, quantity=1)
+        cart_item.save()
+
+    return render(request, 'homepage/cart.html', {'products': [product]})
 
 
 def place_order(request):

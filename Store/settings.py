@@ -88,8 +88,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'tunglam2708',
+        # 'NAME': 'Fruit_juice_online_store',
         'USER': 'postgres',
         'PASSWORD': '270899',
+        # 'USER': 'odoo',
+        # 'PASSWORD': 'odoo',
         'HOST': 'localhost',
         'PORT': '5432',
     }
