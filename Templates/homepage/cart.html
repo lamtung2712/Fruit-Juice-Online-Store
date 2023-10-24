@@ -42,14 +42,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                        {% for product in products %}
+                        {% for cartitem in cartitems %}
                         <tr class="table-body-row">
                             <td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-                            <td class="product-image"><img src="{{ product.images.url }}" alt="{{ product.name }}"></td>
-                            <td class="product-name">{{ product.name }}</td>
-                            <td class="product-price">${{ product.price }}</td>
-                            <td class="product-quantity"><input type="number" placeholder="0" value="{{ product.quantity }}"></td>
-
+                            <td class="product-image"><img src="{{ cartitem.product.images.url }}" alt="{{ cartitem.product.name }}"></td>
+                            <td class="product-name">{{ cartitem.product.title }}</td>
+                            <td class="product-price">${{ cartitem.product.price }}</td>
+                            <td class="product-quantity"><input type="number" placeholder="0" value="{{ cartitem.quantity }}"></td>
+                            <td class="product-total">${{ cartitem.total }}</td>
                         </tr>
                         {% endfor %}
                         </tbody>
@@ -133,33 +133,31 @@
 {% endblock %}
 
 <script>
-    // Function to update the total when quantity changes
-    function updateTotal(row) {
-        const quantityInput = row.querySelector('.product-quantity input');
-        const price = parseFloat(row.querySelector('.product-price').innerText.slice(1)); // Remove "$" and convert to a number
-        const quantity = parseInt(quantityInput.value);
-        const total = price * quantity;
-        row.querySelector('.product-total').innerText = '$' + total.toFixed(2);
-    }
-
-    // Add event listeners to quantity input fields
-    const quantityInputs = document.querySelectorAll('.product-quantity input');
-    quantityInputs.forEach(input => {
-        input.addEventListener('input', function () {
-            updateTotal(input.closest('.table-body-row'));
+    function addToCart(product_id) {
+        // Gửi yêu cầu AJAX để thêm sản phẩm vào giỏ hàng
+        fetch(`/add_to_cart/${product_id}`, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken')  // Thay 'csrftoken' bằng tên middleware CSRF token của Django
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Xử lý kết quả trả về từ máy chủ (ví dụ: cập nhật giao diện người dùng)
+            if (data.success) {
+                // Thành công
+                // Cập nhật giao diện người dùng hoặc hiển thị thông báo
+            } else {
+                // Lỗi
+                // Hiển thị thông báo lỗi hoặc xử lý lỗi khác
+            }
         });
     }
 
-    // Function to remove a product from the cart
-    function removeProduct(row) {
-        row.remove();
+    function getCookie(name) {
+        // Hàm để lấy giá trị của cookie
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
     }
-
-    // Add event listeners to product remove buttons
-    const removeButtons = document.querySelectorAll('.product-remove a');
-    removeButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            removeProduct(button.closest('.table-body-row'));
-        });
-    });
 </script>
