@@ -8,6 +8,7 @@ class Category(models.Model):
     active = models.BooleanField(default='True')
 
 
+
     class Meta:
         verbose_name = 'Categories'
 
