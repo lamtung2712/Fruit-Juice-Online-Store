@@ -117,6 +117,18 @@
 					<a href="?page={{ products.paginator.num_pages }}" class="page-link-product">Last &gt;&gt;</a>
 				{% endif %}
 
+				<!-- product_list.html -->
+				<form method="get">
+    				{{ form.as_p }}
+					<button type="submit">Filter</button>
+				</form>
+
+				<ul>
+    			{% for product in products %}
+        			<li>{{ product.name }} - {{ product.price }}</li>
+    			{% endfor %}
+				</ul>
+
 		</div>
 	</div>
 	<!-- end products -->

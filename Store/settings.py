@@ -87,14 +87,14 @@ WSGI_APPLICATION = 'Store.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tunglam2708',
+        'NAME': 'tunglam27899',
         # 'NAME': 'Fruit_juice_online_store',
         'USER': 'postgres',
-        'PASSWORD': '270899',
+        'PASSWORD': 'tunglam2712',
         # 'USER': 'odoo',
         # 'PASSWORD': 'odoo',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '5433',
     }
 }
 
