@@ -46,8 +46,8 @@ INSTALLED_APPS = [
     'Store',
     'StaffProfile',
     'authentication',
-    'MainVisual'
-
+    'MainVisual',
+    'OrderLine',
 ]
 
 MIDDLEWARE = [

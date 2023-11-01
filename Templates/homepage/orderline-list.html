@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Line List</title>
+</head>
+<body>
+    <h1>Order Line List</h1>
+    <ul>
+        {% for orderline in orderlines %}
+            <li>{{ orderline.product.name }} - Quantity: {{ orderline.quantity }} - Price: {{ orderline.price }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+

@@ -24,7 +24,7 @@ class Product(models.Model):
     currency = models.CharField(max_length=200, default='vnd')
     images = models.ImageField(blank=True,upload_to='Product/media/img/')
     quantity = models.IntegerField(default=0)
-
+    highlighted_features = models.TextField(blank=True, null=True)
 class Discount(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     title = models.CharField(max_length=200, default='')

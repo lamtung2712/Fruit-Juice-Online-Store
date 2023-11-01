@@ -29,6 +29,7 @@ urlpatterns = [
     path('auth/', include('authentication.urls')),
     path('customer/', include('Customer.urls')),
     path('visuals/', include('MainVisual.urls')),
+    path('orderline/', include('OrderLine.urls')),
 
 ]
 
