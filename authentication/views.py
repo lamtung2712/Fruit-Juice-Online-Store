@@ -8,7 +8,7 @@ from django.contrib.auth import login
 
 class LoginClass(View):
     def get(self, request):
-        return render(request, template_name='authentication/login.html')
+        return render(request, template_name='homepage/login.html')
 
     def post(self, request):
         user_name = request.POST.get('username')

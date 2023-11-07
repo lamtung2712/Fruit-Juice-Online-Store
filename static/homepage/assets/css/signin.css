@@ -1,15 +1,97 @@
-.divider:after,
-.divider:before {
-content: "";
-flex: 1;
-height: 1px;
-background: #eee;
+/* Reset some default styles */
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
-.h-custom {
-height: calc(100% - 73px);
+
+/* Main container styles */
+.container-fluid {
+  background-color: #f8f9fa; /* Set your background color */
 }
-@media (max-width: 450px) {
-.h-custom {
-height: 100%;
+
+/* Center the content vertically and horizontally */
+.vh-100 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
+
+/* Left column styles */
+.col-md-9 {
+  padding: 0;
+  text-align: center;
+}
+
+/* Form container styles */
+.col-md-8 {
+  background-color: #fff; /* Set your background color */
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 0px #000000; /* Add a box shadow */
+}
+
+/* Form header styles */
+.form-outline h1 {
+  text-align: center;
+}
+
+/* Social media buttons container styles */
+.d-flex.flex-row {
+  margin: 20px 0;
+}
+
+/* Divider styles */
+.divider {
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Form input styles */
+.form-outline {
+  margin: 10px 0;
+}
+
+.form-control {
+  border: 2px solid #ced4da; /* Set your border color */
+}
+
+/* Remember me checkbox styles */
+.form-check {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+/* Login button styles */
+.btn-primary {
+  background-color: #007bff; /* Set your button color */
+  border: none;
+  padding: 10px 20px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Set your button hover color */
+}
+
+/* Register link styles */
+.link-danger {
+  color: #dc3545; /* Set your link color */
+}
+
+/* Right column styles */
+.text-center.text-md-start {
+  padding: 20px 0;
+}
+
+.text-white {
+  color: #fff; /* Set your text color */
+}
+
+/* Social media icons styles */
+.fab {
+  font-size: 24px; /* Set your icon size */
+  margin: 0 10px;
 }

@@ -27,10 +27,10 @@ urlpatterns = [
     path('cart/', include('Order.urls', namespace='carts')),
     path('checkout/', include('Payment.urls')),
     path('auth/', include('authentication.urls')),
-    path('customer/', include('Customer.urls')),
+    path('customers/', include('Customer.urls')),
     path('visuals/', include('MainVisual.urls')),
-    path('orderline/', include('OrderLine.urls')),
-
+    path('order/', include('OrderLine.urls')),
+    path('__debug__/', include('debug_toolbar.urls')),
 ]
 
 """

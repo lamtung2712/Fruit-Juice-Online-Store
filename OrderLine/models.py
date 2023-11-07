@@ -1,6 +1,6 @@
 from django.db import models
 from Product.models import Product
-from Order.models import Order # Đảm bảo rằng bạn đã import model Product
+from Order.models import Order
 
 class OrderLine(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)  # Liên kết với model Order
@@ -11,8 +11,6 @@ class OrderLine(models.Model):
     def total(self):
         return self.quantity * self.price
 
-    def __str__(self):
-        return f"Order Line - {self.product.name}"
-from django.shortcuts import render
 
-# Create your views here.
+
+
