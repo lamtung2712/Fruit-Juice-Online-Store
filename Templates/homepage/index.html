@@ -5,46 +5,32 @@
 
 {% block content %}
 <!-- search area -->
-<div class="search-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <span class="close-btn"><i class="fas fa-window-close"></i></span>
-                <!-- Thay đổi cấu trúc để ẩn/mostra phần tìm kiếm -->
-                <div class="search-bar" style="display: none;">
-                    <div class="search-bar-tablecell">
-                        <h3>Search For:</h3>
-                        <input type="text" id="search-input" placeholder="Keywords">
-                        <button type="button" id="search-button">Search <i class="fas fa-search"></i></button>
+div class="search-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <span class="close-btn"><i class="fas fa-window-close"></i></span>
+                    <div class="search-bar">
+                        <div class="search-bar-tablecell">
+                            <h3>Search For:</h3>
+                            <input type="text" id="search-input" placeholder="Keywords">
+                            <button type="button" id="search-button">Search <i class="fas fa-search"></i></button>
+                        </div>
                     </div>
+                    <button type="button" id="open-search">Search</button>
                 </div>
-                <!-- Nút "Search" để mở phần tìm kiếm khi click -->
-                <button type="button" id="open-search">Search</button>
             </div>
         </div>
     </div>
-</div>
 
-<script>
-    // Sử dụng JavaScript để ẩn/mostra phần tìm kiếm khi click vào nút "Search"
-    document.getElementById("open-search").addEventListener("click", function () {
-        var searchBar = document.querySelector(".search-bar");
-        if (searchBar.style.display === "none" || searchBar.style.display === "") {
-            searchBar.style.display = "block";
-        } else {
-            searchBar.style.display = "none";
-        }
-    });
+    <script>
+        const openSearchButton = document.getElementById('open-search');
+        const searchBar = document.querySelector('.search-bar');
 
-    // Xử lý tìm kiếm khi click vào nút "Search" trong phần tìm kiếm
-    document.getElementById("search-button").addEventListener("click", function () {
-        var keyword = document.getElementById("search-input").value;
-        // Thực hiện tìm kiếm hoặc điều hướng đến trang tìm kiếm ở đây
-        // Ví dụ: window.location.href = "/search/?q=" + keyword;
-    });
-</script>
-
-
+        openSearchButton.addEventListener('click', () => {
+            searchBar.style.display = 'block';
+        });
+    </script>
 	<!-- end search area -->
 
 	<!-- hero area -->
@@ -126,7 +112,7 @@
                     	<div class="price-box">
                         	<div class="inner-price">
                                 <span class="price">
-                                    <strong>30%</strong> <br> off per kg
+                                    <strong>30%</strong> <br> off
                                 </span>
                             </div>
                         </div>

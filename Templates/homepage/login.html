@@ -3,7 +3,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="/static/homepage/assets/css/signin.css">
+    <link rel="stylesheet" href="{% static 'homepage/assets/css/signin.css' %}">
 
 </head>
 <body>
@@ -17,18 +17,25 @@
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
         <form>
           <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-            <p class="lead fw-normal mb-0 me-3">Sign in with</p>
+            <p class="lead fw-normal mb-0 me-3" style="font-family: 'Arial', sans-serif; font-size: 16px; font-weight: 400; color: #333;">Sign in with</p>
+
 
             <button type="button" class="btn btn-primary btn-floating mx-1">
-              <i class="fab fa-facebook-f"></i>
+              <a href="https://www.facebook.com/" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+              </a>
             </button>
 
             <button type="button" class="btn btn-primary btn-floating mx-1">
-              <i class="fab fa-twitter"></i>
+              <a href="https://twitter.com/yourusername" target="_blank">
+                <i class="fab fa-twitter"></i>
+              </a>
             </button>
 
             <button type="button" class="btn btn-primary btn-floating mx-1">
-              <i class="fab fa-linkedin-in"></i>
+              <a href="https://www.linkedin.com/in/yourprofile" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
             </button>
           </div>
 
@@ -37,9 +44,9 @@
           </div>
 
           <!-- Email input -->
-          <div class="form-outline mb-4">
+          <div class="form-outline mb-4" style="font-family: 'Arial', sans-serif;">
             <input type="email" id="form3Example3" class="form-control form-control-lg"
-              placeholder="Enter a valid email address" />
+              placeholder="Enter a valid email address" style="font-size: 16px; font-weight: 400; color: #333;" />
             <label class="form-label" for="form3Example3">Email address</label>
           </div>
 
