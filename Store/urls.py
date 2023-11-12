@@ -30,7 +30,7 @@ urlpatterns = [
     path('customers/', include('Customer.urls')),
     path('visuals/', include('MainVisual.urls')),
     path('order/', include('OrderLine.urls')),
-    path('__debug__/', include('debug_toolbar.urls')),
+
 ]
 
 """
