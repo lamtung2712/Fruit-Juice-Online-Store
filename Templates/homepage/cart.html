@@ -42,7 +42,14 @@
                         <tbody>
                         {% for cartitem in cartitems %}
                         <tr class="table-body-row" data-id="{{ cartitem.id }}">
-                            <td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
+                            <td class="product-remove">
+                                <form method="POST" action="{%  url 'ordering:remove_cart_item' cartitem.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit">
+                                        <i class="far fa-window-close"></i>
+                                    </button>
+                                </form>
+                            </td>
                             <td class="product-image">
                                 {% if cartitem.product.images %}
                                     <img src="{{ cartitem.product.images.url }}" alt="{{ cartitem.product.name }}">

@@ -21,7 +21,7 @@ def add_to_cart(request, product_id):
 
     cart, created = Cart.objects.get_or_create(user=request.user)
     try:
-        product_cartitem = CartItem.objects.get(product = product).product.id
+        # product_cartitem = CartItem.objects.get(product = product).product.id
         cart_item = CartItem.objects.get(cart=cart, product=product)
         cart_item.quantity += 1
         cart_item.total = cart_item.quantity * cart_item.product.price
@@ -32,35 +32,42 @@ def add_to_cart(request, product_id):
         cart_item.save()
     cart_items = CartItem.objects.all()
     return render(request, 'homepage/cart.html', {'cartitems': cart_items})
-    return JsonResponse({'success': True})
+    # return JsonResponse({'success': True})
 
-def delete_from_cart(request, product_id):
+
+def delete_car_item(request, id):
     cart = get_object_or_404(Cart, user=request.user)
-    product = get_object_or_404(Product, pk=product_id)
 
-    try:
-        cart_item = CartItem.objects.get(cart=cart, product=product)
-
+    # try:
+    cart_item = CartItem.objects.get(id=id)
+    if cart_item:
+        cart_item.delete()
+        cart_items = CartItem.objects.all()
+        return render(request, 'homepage/cart.html', {'cartitems': cart_items})
+    else:
+        cart_items = CartItem.objects.all()
+        return render(request, 'homepage/cart.html', {'cartitems': cart_items})
         # Decrease quantity by 1 and delete if quantity becomes zero
-        if cart_item.quantity > 1:
-            cart_item.quantity -= 1
-            cart_item.total = cart_item.quantity * cart_item.product.price
-            cart_item.save()
-        else:
-            cart_item.delete()
+        # Đoạn code trong if nên tách riêng thành 1 function update giá trị cho quantity
+        # if cart_item.quantity > 1:
+        #     cart_item.quantity -= 1
+        #     cart_item.total = cart_item.quantity * cart_item.product.price
+        #     cart_item.save()
+        # else:
+        #     cart_item.delete()
 
-        if request.is_ajax():
-            return JsonResponse({'success': True})
-        else:
-            # Redirect to the cart page or another appropriate page
-            return HttpResponseRedirect(reverse('homepage/cart.html'))
-    except CartItem.DoesNotExist:
-        # Handle the case where the product is not in the cart
-        if request.is_ajax():
-            return JsonResponse({'success': False, 'message': 'Product not found in the cart'})
-        else:
-            # Redirect to the cart page or another appropriate page
-            return HttpResponseRedirect(reverse('homepage/cart.html'))
+        # if request.is_ajax():
+        #     return JsonResponse({'success': True})
+        # else:
+        #     # Redirect to the cart page or another appropriate page
+        #     return HttpResponseRedirect(reverse('homepage/cart.html'))
+    # except CartItem.DoesNotExist:
+    #     # Handle the case where the product is not in the cart
+    #     if request.is_ajax():
+    #         return JsonResponse({'success': False, 'message': 'Product not found in the cart'})
+    #     else:
+    #         # Redirect to the cart page or another appropriate page
+    #         return HttpResponseRedirect(reverse('homepage/cart.html'))
 
 
 def place_order(request):
