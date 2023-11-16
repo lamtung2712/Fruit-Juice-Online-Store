@@ -15,13 +15,33 @@ def order_list(request):
     return render(request, 'homepage/cart.html', {'order': order})
 
 
+
+# def add_to_cart(request, product_id):
+#     products = {}
+#     product = Product.objects.get(pk=product_id)
+#
+#     cart, created = Cart.objects.get_or_create(user=request.user)
+#     try:
+#         product_cartitem = CartItem.objects.get(product = product).product.id
+#         cart_item = CartItem.objects.get(cart=cart, product=product)
+#         cart_item.quantity += 1
+#         cart_item.total = cart_item.quantity * cart_item.product.price
+#         cart_item.save()
+#     except CartItem.DoesNotExist:
+#         cart_item = CartItem(cart=cart, product=product, quantity=1)
+#         cart_item.total = cart_item.quantity * cart_item.product.price
+#         cart_item.save()
+#     cart_items = CartItem.objects.all()
+#     return render(request, 'homepage/cart.html', {'cartitems': cart_items})
+#     return JsonResponse({'success': True})
+
 def add_to_cart(request, product_id):
     products = {}
     product = Product.objects.get(pk=product_id)
 
     cart, created = Cart.objects.get_or_create(user=request.user)
     try:
-        product_cartitem = CartItem.objects.get(product = product).product.id
+    # product_cartitem = CartItem.objects.get(product = product).product.id
         cart_item = CartItem.objects.get(cart=cart, product=product)
         cart_item.quantity += 1
         cart_item.total = cart_item.quantity * cart_item.product.price
@@ -31,10 +51,9 @@ def add_to_cart(request, product_id):
         cart_item.total = cart_item.quantity * cart_item.product.price
         cart_item.save()
     cart_items = CartItem.objects.all()
-    return render(request, 'homepage/cart.html', {'cartitems': cart_items})
-    return JsonResponse({'success': True})
+    return render (request, 'homepage/cart.html', {'cartitems': cart_items})
 
-def delete_from_cart(request, product_id):
+def delete_cart_item(request, product_id):
     cart = get_object_or_404(Cart, user=request.user)
     product = get_object_or_404(Product, pk=product_id)
 
