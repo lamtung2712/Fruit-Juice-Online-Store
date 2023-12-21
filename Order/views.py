@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 from .models import Order, Cart, CartItem
-from Product.models import Product
+from .models import Product
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-
+from django.contrib import messages
 
 
 
@@ -35,23 +35,38 @@ def order_list(request):
 #     return render(request, 'homepage/cart.html', {'cartitems': cart_items})
 #     return JsonResponse({'success': True})
 
-def add_to_cart(request, product_id):
-    products = {}
-    product = Product.objects.get(pk=product_id)
 
+
+def add_to_cart(request, product_id):
+    # Lấy sản phẩm từ cơ sở dữ liệu
+    product = get_object_or_404(Product, pk=product_id)
+
+    # Kiểm tra xem người dùng đã đăng nhập hay chưa
+    if not request.user.is_authenticated:
+        messages.warning(request, "Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng.")
+        return redirect('authentication:login')
+
+    # Lấy hoặc tạo giỏ hàng cho người dùng hiện tại
     cart, created = Cart.objects.get_or_create(user=request.user)
+
     try:
-    # product_cartitem = CartItem.objects.get(product = product).product.id
+        # Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
         cart_item = CartItem.objects.get(cart=cart, product=product)
         cart_item.quantity += 1
         cart_item.total = cart_item.quantity * cart_item.product.price
         cart_item.save()
     except CartItem.DoesNotExist:
+        # Nếu sản phẩm chưa tồn tại trong giỏ hàng, tạo mới CartItem
         cart_item = CartItem(cart=cart, product=product, quantity=1)
         cart_item.total = cart_item.quantity * cart_item.product.price
         cart_item.save()
-    cart_items = CartItem.objects.all()
-    return render (request, 'homepage/cart.html', {'cartitems': cart_items})
+
+    # Lấy danh sách tất cả các CartItem trong giỏ hàng để hiển thị trên trang giỏ hàng
+    cart_items = CartItem.objects.filter(cart=cart)
+
+    messages.success(request, f"Sản phẩm {product.title} đã được thêm vào giỏ hàng.")
+
+    return render(request, 'homepage/cart.html', {'cartitems': cart_items})
 
 def delete_cart_item(request, product_id):
     cart = get_object_or_404(Cart, user=request.user)

@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from .forms import ProductFilterForm\
+from .forms import ProductFilterForm
 
 
 

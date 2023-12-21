@@ -24,3 +24,4 @@ class Order(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
     order_time = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=True)
+    total = models.FloatField(default=0)

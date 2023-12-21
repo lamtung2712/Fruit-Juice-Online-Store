@@ -25,7 +25,6 @@
 								<li><a href="#">Additional Products</a>
 									<ul class="sub-menu">
 										<li><a href="{% url 'ordering:order_list' %}">Noodles</a></li>
-										<li><a href="{% url 'payment:checkout' %}">Chickens</a></li>
 										<li><a href="{% url 'shop:products_list' %}">...</a></li>
 									</ul>
 								</li>
@@ -39,7 +38,6 @@
 								<li><a href="{% url 'shop:products_list' %}">Shop</a>
 									<ul class="sub-menu">
 										<li><a href="{% url 'shop:products_list' %}">Products</a></li>
-										<li><a href="{% url 'payment:checkout' %}">Check Out</a></li>
 										<li><a href="{% url 'ordering:order_list' %}">Cart</a></li>
 									</ul>
 								</li>
@@ -47,10 +45,19 @@
 									<div class="header-icons">
 										<a class="shopping-cart" href="{% url 'ordering:order_list' %}"><i class="fas fa-shopping-cart"></i></a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+
+										<div class="dashboard-icon">
+            								<div class="user-icon">
+                							<img src="{% static 'homepage/assets/img/avaters/img.png' %}" alt="User Icon">
+											</div>
+        								</div>
 									</div>
 								</li>
 							</ul>
 						</nav>
+						{% block popup %}
+						{% include 'homepage/userInfor.html' %}
+						{% endblock %}
 						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
 						<div class="mobile-menu"></div>
 						<!-- menu end -->
@@ -79,3 +86,5 @@
 		</div>
 	</div>
 	<!-- end search area -->
+
+

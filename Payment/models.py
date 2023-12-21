@@ -10,3 +10,6 @@ class Payment(models.Model):
     total_price = models.IntegerField(default=0)
     order_id = models.ForeignKey(Order, on_delete=models.CASCADE)
     active = models.BooleanField(default='True')
+
+    # Trường mới để xác định trạng thái thanh toán
+    is_paid = models.BooleanField(default=False)

@@ -7,10 +7,16 @@
     <h1>Order Line List</h1>
     <ul>
         {% for orderline in orderlines %}
-            <li>{{ orderline.product.name }} - Quantity: {{ orderline.quantity }} - Price: {{ orderline.price }}</li>
+            <li>
+                {{ orderline.product.name }} -
+                Quantity: {{ orderline.quantity }} -
+                Price: {{ orderline.price }} -
+                Total: {{ orderline.total }}
+            </li>
         {% endfor %}
     </ul>
 </body>
 </html>
+
 
  

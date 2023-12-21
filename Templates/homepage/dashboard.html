@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>Welcome to Your Dashboard</h1>
+        </header>
+        <section class="user-section">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <img src="{% static 'homepage/assets/img/avaters/img.png' %}" alt="User Avatar">
+                </div>
+                <div class="user-details">
+                    <h2>Tung Lam</h2>
+                    <p>Email: ntungnam2789@gmail.com</p>
+                </div>
+            </div>
+            <div class="user-actions">
+                <a href="#">Edit Profile</a>
+                <a href="#">Change Password</a>
+                <a href="#">Logout</a>
+            </div>
+        </section>
+        <section class="dashboard-content">
+            <!-- Your dashboard content goes here -->
+        </section>
+    </div>
+</body>
+
+</html>
+

@@ -1,8 +1,13 @@
 from django.urls import path
-from .views import LoginClass, LogoutView
+from .views import logIn, LogoutView
+from .views import user_dashboard
+
+
+
+app_name = 'authentication'
 
 urlpatterns = [
-    path('login/', LoginClass.as_view(), name='login'),
+    path('login/', logIn, name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
-    # Add other URL patterns as needed
+    path('dashboard/', user_dashboard, name='user_dashboard'),
 ]
